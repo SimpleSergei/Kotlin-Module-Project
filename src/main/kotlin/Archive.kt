@@ -5,7 +5,7 @@ class Archive(val name: String) {
     }
 
     fun getFromArchive(index: Int): Note {
-        return content.get(index)
+        return content[index]
 
     }
 }

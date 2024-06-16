@@ -14,30 +14,21 @@ fun main(args: Array<String>) {
             0 -> break
             1 -> storage.add(screen.createArchive())
             else -> while (true) {
-                screen.showNotesList(storage.get(userCommand.toInt() - 2))
+                screen.showNotesList(storage[userCommand.toInt() - 2])
                 val userCommand2 = Scanner(System.`in`).nextLine()
                 when (userInput(userCommand2, storage[userCommand.toInt() -2 ].content.size)) {
                     -2 -> println("Некорректный ввод. Введите цифру, соответствующую пункту меню.")
                     -1 -> println("Некорректный ввод. Заметка не найдена.")
                     0 -> break
                     1 -> storage[userCommand.toInt() - 2].putInArchive(screen.createNote())
-                    else -> screen.showNote(storage.get(userCommand.toInt() - 2).getFromArchive(userCommand2.toInt() - 2))
+                    else -> screen.showNote(storage[userCommand.toInt() - 2].getFromArchive(userCommand2.toInt() - 2))
                 }
             }
         }
     }
 }
-fun userInput(command: String, max: Int):Int {
-    try {
-        command.toInt()
-    }
-    catch (e:Exception) {
-        return (-2)
-    }
-    if (command.toInt()>max+1) return -1
-    return command.toInt()
+fun userInput(command: String, max: Int): Int {
+    val x: Int = command.toIntOrNull() ?: return (-2)
+    if ((x<0) || (x>max+1)) return (-1)
+    return x
 }
-
-
-
-

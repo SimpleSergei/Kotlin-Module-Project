@@ -1,6 +1,6 @@
 import java.util.Scanner
 
-class UserScreen() {
+class UserScreen {
 
     fun showArchiveList(archiveList: MutableList<Archive>) {
         print("0. Выход\n1. Создать архив \n")
@@ -24,7 +24,7 @@ class UserScreen() {
     fun createArchive(): Archive {
         println("Введите название архива")
         var archiveName = Scanner(System.`in`).nextLine()
-        while (archiveName.trim().equals("")) {
+        while (archiveName.trim() == "") {
             println("Название архива не может быть пустым. Введите название архива")
             archiveName = Scanner(System.`in`).nextLine()
         }
@@ -34,13 +34,13 @@ class UserScreen() {
     fun createNote(): Note {
         println("Введите название заметки")
         var title = Scanner(System.`in`).nextLine()
-        while (title.trim().equals("")) {
+        while (title.trim() == "") {
             println("Название заметки не может быть пустым. Введите название заметки")
             title = Scanner(System.`in`).nextLine()
         }
         println("Введите текст заметки")
         var text = Scanner(System.`in`).nextLine()
-        while (text.trim().equals("")) {
+        while (text.trim() == "") {
             println("Заметка не может быть пустой. Введите текст заметки")
             text = Scanner(System.`in`).nextLine()
         }
